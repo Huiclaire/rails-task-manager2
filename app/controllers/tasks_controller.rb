@@ -7,6 +7,10 @@ class TasksController < ApplicationController
     set_task
   end
 
+  def new
+    @task = Task.new
+  end
+
   private
 
   def set_task
