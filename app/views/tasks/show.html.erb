@@ -1,6 +1,21 @@
-<h1><%= @task.title %></h1>
-<%= @task.details %>
-<%= link_to 'Edit this task', edit_task_path %>
-<%= link_to 'Delete', task_path(@task),
-method: :delete, data: {confirm: "Delete #{@task.title}?"} %>
-<%= link_to 'Back to list', tasks_path %>
+<div class="container mt-5">
+  <div class="d-flex flex-column bd-highlight mb-3">
+    <div class= "p-2 bd-highlight"><h1><%= @task.title %></h1></div>
+    <div class= "p-2 bd-highlight"><%= @task.details %></div>
+    <div class= "p-2 bd-highlight"><%= link_to edit_task_path(@task.id), class:'btn btn-light btn-sn' do %>
+        <i class="fa fa-pencil"></i> Edit this task
+    <% end %></div>
+  </div>
+
+  <% if @task.completed %>
+    <i class="fa-solid fa-square-check"></i> This task is completed
+  <% else %>
+    <i class="fa-regular fa-square"></i> This task is not completed yet
+  <% end %>
+
+
+  <hr>
+  <%= link_to tasks_path do%>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list
+  <% end %>
+</div>

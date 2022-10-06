@@ -1,13 +1,19 @@
-<%= form_with model: task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="container mt-3 mb-3">
+  <%= form_with model: task do |f| %>
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
 
-  <%= f.label :details %>
-  <%= f.text_field :details %>
+    <div class="form-group mb-3">
+      <%= f.label :details %>
+      <%= f.text_field :details, class: 'form-control' %>
+    </div>
 
-  <% unless f.object.new_record? %>
+    <% unless f.object.new_record? %>
     <%= f.check_box :completed %> Completed
-  <% end %>
+    <% end %>
 
-  <%= f.submit %>
-<% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
